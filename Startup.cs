@@ -1,15 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Npgsql;
 using Microsoft.EntityFrameworkCore;
 
@@ -69,21 +62,5 @@ namespace MyWebApi
                 endpoints.MapControllers();
             });
         }
-    }
-
-    public class ApplicationContext : DbContext
-    {
-        public ApplicationContext(DbContextOptions options)
-                : base(options)
-        {
-        }
-        public DbSet<Student> Students { get; set; }
-    }
-
-    public class Student
-    {
-        public Guid Id { get; set; }
-        public string Name { get; set; }
-        public int Age { get; set; }
     }
 }
